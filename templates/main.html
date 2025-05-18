@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>Positive Affirmation</title>
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+<style>
+body{
+background-color:#E1F5FE;
+}
+
+.title{
+color:#2E7D32;
+font-family:sans-serif;
+font-size:32px;
+text-align:center;
+margin-top:30px;
+margin-bottom:70px;
+}
+
+.messagelabel{
+color:#37474f;
+font-size:20px;
+margin-left:320px;
+}
+
+.messageinput{
+margin-top:px;
+margin-left:320px;
+background-color:white;
+color:#212121;
+border-color:#BDBDBD;
+border-radius:10px;
+padding:10px 20px;;
+font-family:sans-serif;
+font-size:15px;
+width:50%;
+box-shadow:0 5px 4px rgba(0,0,0,0.1)
+}
+
+.submit{
+background-color:#4CAF50;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:8px;
+font-size:16px;
+font-weight:bold;
+}
+
+.submit:hover{
+cursor:pointer;
+background-color:#388E3C;
+transition:0.3s ease;
+}
+
+.outputblock{
+background-color:#E8F5E9;
+color:#1B5E20;
+font-family:sans-serif;
+font-size:20px;
+border-radius:10px;
+margin-left:320px;
+margin-bottom:20px;
+padding-top:100px;
+padding-bottom:100px;
+width:50%
+}
+
+.userinput{
+background-color:#E0F7FA;
+color:#006064;
+border-radius:20px;
+padding:10px;
+margin-left:500px;
+margin-bottom:8px;
+margin-top:5px;
+border-width:2px;
+}
+
+.affirmations{
+background-color:#E8F5E9;
+color:#1B5E20;
+border-color:#E8F5E9;
+border-width:2px;
+margin-left:10px;
+}
+
+.anotheraffirmation{
+padding:5px 10px;
+background-color:#FF9800;
+color:#FFFFFF;
+border-radius:8px;
+font-size:15px;
+}
+
+.anotheraffirmation:hover{
+background-color:#F57C00;
+cursor:pointer;
+transition:0.3s ease;
+}
+</style>
+</head>
+<body>
+<h1 class="title">Affirmation Generator</h1>
+
+{% if userinput and affirmation %}
+	<form action="/main" method="POST">
+	<div class="outputblock">
+	<p class="userinput">{{ userinput }} </p>
+	<p class="affirmations">{{ affirmation }}</p>
+	<input type="submit" name="anotheraffirmation" class="anotheraffirmation" value="Generate Another Affirmation">
+	</form>
+	</div>
+{% endif %}
+
+<form action="http://localhost:1000/main" method="POST" >
+    <label for="message" class="messagelabel">How are your feeling today?</label><br>
+    <input type="text" class="messageinput" id="message" name="message" placeholder="I feel tired,anxious...">
+    <input type="submit" class="submit" name="submit" value="Get Affirmation">
+</form>
+
+<footer style="background-color:#ECEFF1;padding:15px;text-allign:center; margin-top:50px; font-size:14px;color:#607D8B;font-family:sans-serif;border-top:1px; solid #CFD8DC;">
+Made by Jeet Thakkar | Internship Project - CodeShape IT Solution</footer>
+
+</body>
+</html>
